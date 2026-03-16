@@ -98,6 +98,24 @@ InspectLink.isClassic(classicUrl); // true
 
 ---
 
+## Validation rules
+
+`deserialize()` enforces:
+
+| Rule | Limit | Error |
+|------|-------|-------|
+| Hex payload length | max 4,096 characters | `RangeError` |
+| Protobuf field count | max 100 per message | `RangeError` |
+
+`serialize()` enforces:
+
+| Field | Constraint | Error |
+|-------|-----------|-------|
+| `paintWear` | `[0.0, 1.0]` | `RangeError` |
+| `customName` | max 100 characters | `RangeError` |
+
+---
+
 ## How the format works
 
 Three URL formats are handled:
