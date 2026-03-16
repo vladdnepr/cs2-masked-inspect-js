@@ -18,7 +18,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          registry-url: "https://registry.npmjs.org"
+          # No registry-url — prevents setup-node from writing NODE_AUTH_TOKEN
+          # to .npmrc, which would override OIDC trusted publishing auth
 
       - name: Set version from tag
         run: |
@@ -27,5 +28,3 @@ jobs:
 
       - name: Publish to npm
         run: npm publish --access public --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
