@@ -1,0 +1,19 @@
+{
+  "name": "@vlydev/cs2-masked-inspect",
+  "version": "1.0.0",
+  "description": "Offline decoder/encoder for CS2 masked inspect URLs — pure JavaScript, no dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test tests/inspect_link.test.js"
+  },
+  "keywords": ["cs2", "csgo", "inspect", "protobuf", "steam"],
+  "author": {
+    "name": "VlyDev",
+    "email": "vladdnepr1989@gmail.com",
+    "url": "https://github.com/vlydev"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
