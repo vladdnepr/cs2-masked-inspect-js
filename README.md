@@ -73,6 +73,33 @@ const decoded = InspectLink.deserialize(hex); // round-trip
 
 ---
 
+## Gen codes
+
+Generate a Steam inspect URL from item parameters (defindex, paintindex, paintseed, paintwear):
+
+```js
+const { toGenCode, generate, parseGenCode, ItemPreviewData } = require('@vlydev/cs2-masked-inspect');
+
+// Generate a Steam inspect URL from item parameters
+const url = generate(7, 474, 306, 0.22540508);
+// steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20...
+
+// Convert ItemPreviewData to a gen code string
+const item = new ItemPreviewData({ defIndex: 7, paintIndex: 474, paintSeed: 306, paintWear: 0.22540508 });
+toGenCode(item);          // "!gen 7 474 306 0.22540508"
+toGenCode(item, '!g');    // "!g 7 474 306 0.22540508"
+
+// Parse a gen code back to ItemPreviewData
+const item2 = parseGenCode('!gen 7 474 306 0.22540508');
+
+// Convert an existing inspect link directly to a gen code
+const { genCodeFromLink } = require('@vlydev/cs2-masked-inspect');
+const code = genCodeFromLink('steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20001A...');
+// "!gen 7 474 306 0.22540508"
+```
+
+---
+
 ## Validation
 
 Use `InspectLink.isMasked()` and `InspectLink.isClassic()` to detect the link type without decoding it.
