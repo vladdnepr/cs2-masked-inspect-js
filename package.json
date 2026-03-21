@@ -1,10 +1,15 @@
 {
   "name": "@vlydev/cs2-masked-inspect",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Offline decoder/encoder for CS2 masked inspect URLs — pure JavaScript, no dependencies",
   "main": "index.js",
   "scripts": {
-    "test": "node --test tests/inspect_link.test.js"
+    "test": "node --test tests/*.test.js",
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "esbuild": "^0.25.0"
   },
   "keywords": ["cs2", "csgo", "inspect", "protobuf", "steam"],
   "author": {
